@@ -23,5 +23,3 @@ if(NOT OpenCL-ICD-Loader_POPULATED)
   add_subdirectory(${opencl-icd-loader_SOURCE_DIR} ${opencl-icd-loader_BINARY_DIR})
   message(STATUS "Populated OpenCL ICD Loader")
 endif()
-
-set_target_properties(OpenCL PROPERTIES FOLDER "Extern")

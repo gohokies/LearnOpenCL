@@ -3,11 +3,6 @@ cmake_minimum_required(VERSION 3.21)
 # project name and supported languages
 project(LearnOpenCL C CXX)
 
-# project version
-set(VERSION_MAJOR 1)
-set(VERSION_MINOR 0)
-set(VERSION_PATCH 0)
-
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 17)
 
