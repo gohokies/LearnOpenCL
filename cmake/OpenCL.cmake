@@ -1,0 +1,27 @@
+include(FetchContent)
+
+set(OPENCL_HEADER_REPOSITORY "https://github.com/KhronosGroup/OpenCL-Headers.git")
+set(OPENCL_HEADER_TAG "v2021.06.30")
+
+set(OPENCL_LOADER_REPOSITORY "https://github.com/KhronosGroup/OpenCL-ICD-Loader.git")
+set(OPENCL_LOADER_TAG "v2021.06.30")
+
+FetchContent_Declare(OpenCL-Headers GIT_REPOSITORY ${OPENCL_HEADER_REPOSITORY} GIT_TAG ${OPENCL_HEADER_TAG})
+FetchContent_GetProperties(OpenCL-Headers)
+if(NOT OpenCL-Headers_POPULATED)
+  FetchContent_Populate(OpenCL-Headers)
+  message(STATUS "Populated OpenCL Headers")
+endif()
+set(OPENCL_ICD_LOADER_HEADERS_DIR ${opencl-headers_SOURCE_DIR} CACHE PATH "")
+set(OpenCL_INCLUDE_DIR ${opencl-headers_SOURCE_DIR} CACHE PATH "")
+
+FetchContent_Declare(OpenCL-ICD-Loader GIT_REPOSITORY ${OPENCL_LOADER_REPOSITORY} GIT_TAG ${OPENCL_LOADER_TAG})
+FetchContent_GetProperties(OpenCL-ICD-Loader)
+if(NOT OpenCL-ICD-Loader_POPULATED)
+  FetchContent_Populate(OpenCL-ICD-Loader)
+  set(USE_DYNAMIC_VCXX_RUNTIME ON)
+  add_subdirectory(${opencl-icd-loader_SOURCE_DIR} ${opencl-icd-loader_BINARY_DIR})
+  message(STATUS "Populated OpenCL ICD Loader")
+endif()
+
+set_target_properties(OpenCL PROPERTIES FOLDER "Extern")
