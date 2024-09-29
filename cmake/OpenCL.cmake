@@ -10,6 +10,7 @@ set(OPENCL_LOADER_REPOSITORY "https://github.com/KhronosGroup/OpenCL-ICD-Loader.
 set(OPENCL_LOADER_TAG "v2021.06.30")
 
 FetchContent_Declare(OpenCL-Headers GIT_REPOSITORY ${OPENCL_HEADER_REPOSITORY} GIT_TAG ${OPENCL_HEADER_TAG})
+
 FetchContent_GetProperties(OpenCL-Headers)
 if(NOT OpenCL-Headers_POPULATED)
   FetchContent_Populate(OpenCL-Headers)
