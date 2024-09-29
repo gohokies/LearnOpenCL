@@ -1,1 +1,1 @@
-add_subdirectory(OpenclInfo)
+add_subdirectory(OpenCLInfo)
