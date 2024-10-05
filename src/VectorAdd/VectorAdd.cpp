@@ -1,8 +1,6 @@
 #include <CL/opencl.hpp>
-#include <fstream>
 #include <iostream>
 #include <vector>
-#include <time.h>
 
 int main()
 {
